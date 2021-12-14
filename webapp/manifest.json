@@ -1,0 +1,146 @@
+{   
+    "_version": "1.37.0",
+    "sap.app": {
+        "id": "CoreChange.ABAP.first",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+
+        "dataSources": {
+                "mridulFiori":{
+                    "uri": "/sap/opu/odata/SAP/ZMRI_PROD_DATA_SRV/",
+                    "type": "OData",
+                    "settings": {
+                        "odataVersion": "2.0"
+                    }
+                }
+        }
+    },
+
+    "sap.ui": {
+      "technology":"UI5",
+      "deviceTypes":{
+          "desktop": true,
+          "phone": true,
+          "tablet": true
+      },
+      "supportedThemes": [
+          "sap_belize", "sap_bluecrystal"
+      ],
+      "fullWidth": true
+
+    },
+
+    "sap.ui5":{
+        
+        "rootView":{
+            "id": "idRootView",
+            "type": "XML",
+            "viewName": "CoreChange.ABAP.first.view.App"
+
+        },
+
+        "routing": {
+            "config":{
+                "routerClass": "sap.m.routing.Router",
+                "viewPath": "CoreChange.ABAP.first.view",
+                "viewType": "XML",
+                "controlId": "AppCon"
+            },
+
+            "routes":[  
+                {
+                   "name": "masterdata",
+                   "pattern": "",
+                   "target":["mridul", "shikha"] 
+
+                },
+                {
+                    "name": "detaildata",
+                    "pattern": "fruitsdata/{fruitIndex}",
+                    "target":["mridul", "padmanabhan"] 
+ 
+                 },
+                 {
+                     "name": "supplierdata",
+                     "pattern": "supplierdata/{supplIndex}",
+                     "target":["mridul", "supplier"] 
+  
+                  },
+                  {
+                      "name": "addproduct",
+                      "pattern": "addproduct",
+                      "target":["mridul", "addproduct"] 
+   
+                   }                  
+
+            ],
+
+            "targets": {
+                "mridul":{
+                    "viewName": "view1",
+                    "viewId": "idView1",
+                    "controlAggregation": "masterPages"
+                },
+
+                "shikha":{
+                    "viewName": "empty",
+                    "viewId": "idEmpty",
+                    "controlAggregation": "detailPages"
+                },
+                "padmanabhan":{
+                    "viewName": "view2",
+                    "viewId": "idView2",
+                    "controlAggregation": "detailPages"
+                },
+
+                "supplier":{
+                    "viewName": "supplier",
+                    "viewId": "idSupplier",
+                    "controlAggregation": "detailPages"
+                },
+
+                "addproduct":{
+                    "viewName": "addproduct",
+                    "viewId": "idAddProduct",
+                    "controlAggregation": "detailPages"
+                }
+
+            }
+
+        },
+
+        "dependencies": {
+            "minUI5Version": "1.90",
+            "libs": {
+                "sap.m":{},
+                "sap.ui.comp":{},
+                "sap.ui.layout":{} 
+            }
+                 },
+          "contentDensities": {"compact": true, "cozy": false},
+          
+         "models": {
+            "":{
+                "dataSource": "mridulFiori",
+                "type": "sap.ui.model.odata.v2.ODataModel"
+            
+            },
+            "fruits" :{
+                "uri": "mockdata/fruits.json",
+                "type": "sap.ui.model.json.JSONModel"
+            },
+
+            "i18n":{
+                "uri": "i18n/i18n.properties",
+                "type": "sap.ui.model.resource.ResourceModel"
+            }
+
+         } 
+
+    }
+}

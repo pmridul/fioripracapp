@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:t="sap.ui.table" 
+        xmlns:core="sap.ui.core" 
+        controllerName="CoreChange.ABAP.first.controller.empty">
+
+</mvc:View>

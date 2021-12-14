@@ -1,0 +1,31 @@
+<core:FragmentDefinition  xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+<VBox >
+       <items>
+				<Select items="{
+							path: '/cities',
+							sorter: { path: 'name' }
+						}">
+					<core:Item key="{name}" text="{name}" />
+				</Select>    
+
+			<ComboBox
+				items="{
+					path: '/cities',
+					sorter: { path: 'name' }
+				}">
+				<core:Item key="{name}" text="{name}" />
+			</ComboBox>     
+
+			<MultiComboBox
+				items="{
+					path: '/cities',
+					sorter: { path: 'name' }
+				}"
+        selectionFinish="onSelFinish"
+        id="idMultiCombo">
+				<core:Item key="{name}" text="{name}" />
+			</MultiComboBox>
+      <Button text="Display MComboBox data" press="onDisplayMCB"></Button>
+      </items>
+      </VBox>             
+</core:FragmentDefinition>

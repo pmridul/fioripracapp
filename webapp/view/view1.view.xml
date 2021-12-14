@@ -1,0 +1,101 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:t="sap.ui.table" 
+        xmlns:core="sap.ui.core" 
+        controllerName="CoreChange.ABAP.first.controller.view1">
+
+    <Page title="View 1">
+        <headerContent>
+            <Button icon="sap-icon://action" press="onNext"></Button>
+        </headerContent>
+        
+        <content>
+            <VBox >
+            <Label text="On Enter"></Label>
+            <SearchField id="idSearch" search="onSearch"></SearchField>
+            </VBox>
+
+            <VBox >
+            <Label text="Live Search"></Label>
+            <SearchField id="idLiveSearch" liveChange="onLiveSearch" ></SearchField>
+            </VBox>
+
+           <!-- <List id="idList" items="{/fruits}" selectionChange="onItemSelect" mode="SingleSelectMaster" delete="onDelItem">-->
+           <List id="idList" 
+                 items="{/ProductSet}" 
+                 selectionChange="onItemSelect" 
+                 mode="SingleSelectMaster" 
+                 delete="onDelItem"
+                 growing="true"
+                 growingThreshold="5"
+                 >
+             <headerToolbar>
+                <Toolbar >
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button text="Delete" press="onDeleteItems" type="Reject" icon="sap-icon://delete"/>
+                </Toolbar>
+             </headerToolbar>
+                <items>
+
+                <!--
+                <DisplayListItem label="Apple" value="Powerful Antibiotic in the planet"/>
+
+                <StandardListItem 
+				title="Banana"
+				description="BIggest Source of Pottasium"
+				 icon="data:image/png;base64,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"                 
+                 />
+
+		<InputListItem>
+            <content >
+            <HBox >
+            <Text text="Which is best fruit for skin" class="sapUiSmallMargin"></Text>
+            <Input ></Input>
+            </HBox>
+            </content>
+		</InputListItem> 
+
+        <CustomListItem >
+            <content>
+                <SegmentedButton>
+                    <items> 
+                        <SegmentedButtonItem text="Low" key="idLow" />
+                        <SegmentedButtonItem text="Medium" key="idMedium" />
+                        <SegmentedButtonItem text="High" key="idHigh" />
+                    </items>
+                </SegmentedButton>
+            </content>
+        </CustomListItem>         
+
+                <ActionListItem text="Order Now" press="onNext" ></ActionListItem>   -->
+
+        <ObjectListItem 
+			title="{PRODUCT_ID}"
+			intro="{NAME}"
+			press=""
+            icon="{PRODUCT_PIC_URL}"
+			number="{PRICE}"
+			numberUnit="{CURRENCY_CODE}"
+            >        
+			<firstStatus>
+				<ObjectStatus
+					text="{DESCRIPTION}"
+					state="{path : 'status',
+                            formatter:'.formatter.convertStatus'}"
+                             />
+			</firstStatus>
+        </ObjectListItem>                    
+                 </items>
+            </List>
+        </content>
+
+        <footer>
+         <Toolbar >
+            <ToolbarSpacer ></ToolbarSpacer>
+            <Button text="Create Product" press="onNewProd" icon="sap-icon://add"></Button>
+         </Toolbar>
+        </footer>
+
+    </Page>        
+
+</mvc:View>

@@ -1,0 +1,12 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:t="sap.ui.table" 
+        xmlns:core="sap.ui.core" 
+        controllerName="CoreChange.ABAP.first.controller.App">
+        <!-- This is App container control for worklist
+        <App id="AppCon"></App> 
+        
+       This is Master Detail layout -->
+       <SplitApp id="AppCon"></SplitApp>
+
+</mvc:View>

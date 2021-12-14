@@ -1,0 +1,14 @@
+specVersion: '2.6'
+metadata:
+  name: fioriappprac
+type: application
+
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      ignoreCertError : true
+      backend:
+      - path: /sap
+        url: https://54.228.55.175:44300/

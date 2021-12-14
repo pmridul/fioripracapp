@@ -1,0 +1,28 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:f="sap.ui.layout.form"
+        xmlns:t="sap.ui.table" 
+        xmlns:core="sap.ui.core" 
+        controllerName="CoreChange.ABAP.first.controller.supplier">
+
+        <f:SimpleForm 
+                    layout="ResponsiveGridLayout"
+                    title="General Info"
+
+        >
+          <f:content>
+              <Label text="Name"></Label>
+              <Text text="{name}"></Text>
+                      
+              <Label text="Contact Person"></Label>
+              <Text text="{contactPerson}"></Text>
+
+              <Label text="Contact Number"></Label>
+              <Text text="{contactNo}"></Text>
+                      
+              <Label text="City"></Label>
+              <Text text="{city}"></Text>                                    
+          </f:content>
+        </f:SimpleForm>
+
+</mvc:View>        

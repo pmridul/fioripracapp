@@ -1,0 +1,50 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" 
+        xmlns="sap.m" 
+        xmlns:t="sap.ui.table" 
+        xmlns:core="sap.ui.core" 
+        xmlns:f="sap.ui.layout.form"
+        controllerName="CoreChange.ABAP.first.controller.view2">
+
+<Page title="View 2" showNavButton="true" navButtonPress="onBack">
+
+<content>
+	<ObjectHeader
+		title="{PRODUCT_ID}"
+		number="{PRICE}"
+		numberUnit="{CURRENCY_CODE}"
+		icon="{PRODUCT_PIC_URL}"
+    intro="{CATEGORY}">
+	</ObjectHeader>
+
+  <IconTabBar >
+    <items>
+      <IconTabFilter text="More Info" icon="sap-icon://information">
+       <!--call the fragment-->
+       <core:Fragment fragmentName="CoreChange.ABAP.first.fragment.moreinfo" type="XML" />
+      </IconTabFilter>
+
+      <IconTabFilter text="Suppliers" icon="sap-icon://supplier">
+       <!--call the fragment-->
+       <core:Fragment fragmentName="CoreChange.ABAP.first.fragment.supplier" type="XML" />
+      </IconTabFilter>
+
+      <IconTabFilter text="Cities" icon="sap-icon://addresses">
+       <!--call the fragment-->
+       <core:Fragment fragmentName="CoreChange.ABAP.first.fragment.cities" type="XML" />       
+      </IconTabFilter>
+      
+    </items>
+  </IconTabBar>
+
+</content>  
+<footer>
+  <Toolbar>
+   <!--Toolbar spacer to push the button to right-->
+    <ToolbarSpacer/>
+     <Button text="Save" press="onSave" type="Accept"></Button>   
+     <Button text="Cancel" press="onCancel" type="Reject"></Button>
+  </Toolbar>
+</footer>
+
+</Page>
+</mvc:View>
